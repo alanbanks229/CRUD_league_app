@@ -1,0 +1,19 @@
+<h1><%= @user.username %> Account </h1>
+<div></div>
+<h2>Add Champion/Edit Username</h2>
+<%= form_for @user do |user_form| %>
+    <%= user_form.label :username %>
+    <%= user_form.text_field :username%>
+    <%= user_form.submit %>
+
+    <h3>Add some champions</h3>
+    <div>
+        <%= user_form.fields_for :champions do |champion| %>
+        <div>
+            <%= champion.collection_select(:champion_id, Champion.all, :id, :name) %>
+        </div>
+        <% end %>
+    </div>
+    <%= user_form.submit %>
+<% end %>
+

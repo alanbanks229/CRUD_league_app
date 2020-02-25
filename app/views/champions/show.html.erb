@@ -1,0 +1,10 @@
+<h1><%= @champion.name %></h1>
+<h2> Description: </h2>
+<p><%= @champion.description %> </p>
+<h2> Role: </h2>
+<p> <%= @champion.role %> </p>
+<%= form_tag(champion_path(@champion), method: :delete) do %>
+    <div>
+     <%= submit_tag 'Delete this champion' %>
+     </div>
+    <% end %>

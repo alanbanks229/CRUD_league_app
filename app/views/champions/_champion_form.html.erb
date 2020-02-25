@@ -1,0 +1,12 @@
+<%= form_for @champion do |f| %>
+    <div></div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <div></div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+    <div></div>
+    <%= f.label :role %>
+    <%= f.text_field :role %>
+    <%= f.submit "Create Champ" %>
+<% end %>

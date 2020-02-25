@@ -1,0 +1,25 @@
+<%= form_for @user do |user_form| %>
+    <%= user_form.label :username %>
+    <%= user_form.text_field :username,  placeholder: "User Name" %>
+    <%= user_form.label :rank %>
+    <%= user_form.text_field :rank %>
+
+
+    <h3>Create some champions</h3>
+    <div>
+        <%= user_form.fields_for :champions do |champion| %>
+        <div>
+            <%= champion.label :name %>
+            <%= champion.text_field :name %>
+            <%= champion.label :description %>
+            <%= champion.text_field :description %>
+            <%= champion.label :role %>
+            <%= champion.text_field :role %>
+            <%= champion.collection_select(:champion_id, Champion.all, :id, :name) %>
+        </div>
+        <% end %>
+    </div>
+    <%= user_form.submit %>
+<% end %>
+
+    

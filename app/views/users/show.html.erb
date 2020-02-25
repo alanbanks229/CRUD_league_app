@@ -1,0 +1,18 @@
+<h1><%= @user.username %></h1>
+<h2> Rank: </h2>
+<p><%= @user.rank %> </p>
+
+<h2>Owned Champions: </h2>
+    <div>
+    <% @user.champions.uniq.each do |c| %>
+        <li><%= link_to c.name, champion_path(c)%></li>
+    <% end %>
+    </div>
+    <%= form_tag(user_path(@user), method: :delete) do %>
+    <div>
+     <%= submit_tag 'Delete this User' %>
+    </div>
+<% end %>
+
+<h3>Add Champion to your account!</h3>
+<p><%= link_to "Add Champion", edit_user_path %> </p>
